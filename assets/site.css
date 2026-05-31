@@ -2262,3 +2262,84 @@ body::after {
   .fd-hero-tiktok { margin-top: 1.5rem; }
   .fd-zen-fuji--wide { aspect-ratio: 16/10; }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   THEME: ZEN — warm washi/sumi palette, scoped to Products page
+   (body.theme-zen). Overrides the blue-cosmos tokens.
+   ───────────────────────────────────────────────────────────── */
+body.theme-zen {
+  --brand-blue: #C2452F;            /* shu-iro vermilion */
+  --brand-green: #B07A3C;           /* aged gold */
+  --brand-mid: #C8623A;
+  --brand-grad: linear-gradient(90deg, #C2452F 0%, #C8623A 50%, #B07A3C 100%);
+  --brand-grad-soft: linear-gradient(135deg, rgba(194,69,47,0.16), rgba(176,122,60,0.16));
+  --brand-grad-vert: linear-gradient(180deg, #C2452F 0%, #B07A3C 100%);
+
+  --acc: #C2452F;
+  --acc-2: #B07A3C;
+  --acc-dim: rgba(194,69,47,0.08);
+  --acc-border: rgba(120,90,60,0.28);
+  --acc-text: #F5EFE3;
+
+  /* warm washi-paper surfaces */
+  --bg: #F3EEE4;
+  --bg-2: #ECE5D7;
+  --surface: #F7F2E8;
+  --surface-2: #EFE8DA;
+  --surface-3: #E7DECC;
+  --border: rgba(60,48,36,0.12);
+  --border-strong: rgba(60,48,36,0.20);
+  --border-nav: rgba(60,48,36,0.12);
+
+  /* sumi-ink text */
+  --text-primary: #2A2620;
+  --text-secondary: rgba(42,38,32,0.70);
+  --text-muted: rgba(42,38,32,0.50);
+  --text-dim: rgba(42,38,32,0.32);
+
+  background: var(--bg);
+  color: var(--text-primary);
+  background-image:
+    radial-gradient(1100px 560px at 12% -10%, rgba(194,69,47,0.07), transparent 60%),
+    radial-gradient(820px 460px at 100% 4%, rgba(176,122,60,0.08), transparent 55%),
+    linear-gradient(180deg, #F3EEE4 0%, #EFE8DA 100%);
+}
+
+/* nav becomes warm/translucent on the paper background */
+body.theme-zen .fd-nav {
+  background: rgba(243,238,228,0.82);
+  border-bottom-color: var(--border-nav);
+}
+body.theme-zen .fd-nav-links a { color: rgba(42,38,32,0.66); }
+body.theme-zen .fd-nav-links a:hover,
+body.theme-zen .fd-nav-links a.active { color: var(--text-primary); }
+
+/* logo is light-on-dark art → keep it readable on paper */
+body.theme-zen .fd-logo img,
+body.theme-zen .fd-footer-logo img {
+  filter: brightness(0) saturate(100%);
+  opacity: 0.82;
+}
+
+/* starfield/planet ambience reads wrong on paper — disable on this page */
+body.theme-zen::before,
+body.theme-zen::after { display: none; content: none; }
+body.theme-zen .fd-hero-planet,
+body.theme-zen .fd-hero::before,
+body.theme-zen .fd-hero::after { display: none; }
+
+/* section dividers + labels pick up vermilion via tokens already.
+   Footer on paper: */
+body.theme-zen .fd-footer { border-top-color: var(--border-strong); }
+body.theme-zen .fd-footer-links a { color: var(--text-secondary); }
+body.theme-zen .fd-footer-links a:hover { color: var(--acc); }
+
+/* CTA band: keep it warm rather than cosmic */
+body.theme-zen .fd-cta {
+  background:
+    radial-gradient(700px 300px at 50% 0%, rgba(194,69,47,0.10), transparent 70%),
+    var(--surface-2);
+}
+
+/* The dedicated .fd-zen panel already sets its own paper vars locally —
+   leave it; it now harmonises with the page instead of contrasting. */
