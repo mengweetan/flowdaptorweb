@@ -14,3 +14,19 @@ composer.lock
 .vscode/
 *.swp
 *~
+
+# Claude / local tooling
+.claude/
+
+# Unused raw media drops (kept locally, not deployed)
+assets/openart-*
+assets/video-*
+assets/video_*
+assets/storyboard_*
+assets/ruby_*
+assets/inotgrumpy_*
+assets/zen/
+assets/*Dream-Side*
+assets/RUBY.jpg
+
+assets/ruby_dialogue_line*
